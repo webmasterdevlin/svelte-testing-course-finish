@@ -15,8 +15,8 @@ const HEROES = [
 
 describe('Heroes Page', () => {
   beforeEach(() => {
-    cy.getCommand('/api/heroes', HEROES);
-    cy.deleteCommand('/api/heroes/*');
+    cy.getCommand('/heroes', HEROES);
+    cy.deleteCommand('/heroes/*');
     cy.visit('/');
   });
 
@@ -38,6 +38,8 @@ describe('Heroes Page', () => {
 
     cy.get('[data-testid=card]').should('have.length', HEROES.length);
   });
+
+  it('should delete a hero when click yes', () => {});
 
   it('should not add a new hero when cancelled', () => {
     cy.get('[data-testid=plus-button]').click();
@@ -62,7 +64,7 @@ describe('Heroes Page', () => {
     cy.get('[data-testid=card]').should('have.length', HEROES.length + 1);
   });
 
-  it.only('should update an existing hero', () => {
+  it('should update an existing hero', () => {
     const index = 0;
     const heroToEdit = HEROES[index];
     const editedDescription = 'Viking Queen';

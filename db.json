@@ -11,16 +11,6 @@
       "description": "king of 9th century Sweden"
     },
     {
-      "id": "HeroIvar",
-      "name": "Ivar the Boneless",
-      "description": "commander of the Great Heathen Army"
-    },
-    {
-      "id": "HeroLagertha",
-      "name": "Lagertha the Shieldmaiden",
-      "description": "aka Hlaðgerðr"
-    },
-    {
       "id": "HeroRagnar",
       "name": "Ragnar Lothbrok",
       "description": "aka Ragnar Sigurdsson"

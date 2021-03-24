@@ -12,9 +12,8 @@ Cypress.Commands.add('getCommand', (url, responseBody) => {
 });
 
 Cypress.Commands.add('deleteCommand', (url) => {
-  console.log('deleteCommand');
   cy.intercept('DELETE', url, {
-    statusCode: 200,
+    statusCode: 204,
   });
 });
 
