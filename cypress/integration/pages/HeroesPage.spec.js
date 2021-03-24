@@ -62,32 +62,25 @@ describe('Heroes Page', () => {
     cy.get('[data-testid=card]').should('have.length', HEROES.length + 1);
   });
 
-  it('should update an existing hero', () => {
-    const name = 'Ruben';
-    const description = 'Col.';
-
-    cy.get('[data-testid=plus-button]').click();
-    cy.SetupInputFieldsCommand();
-    cy.get('@Name').type(name);
-    cy.get('@Description').type(description);
-    cy.postCommand('/heroes', { name, description });
-    cy.get('[data-testid=button]').contains('Save').click();
-
-    cy.get('[data-testid=card]').should('have.length', HEROES.length + 1);
-
-    const index = 2;
+  it.only('should update an existing hero', () => {
+    const index = 0;
     const heroToEdit = HEROES[index];
-    const editedDescription = 'General';
+    const editedDescription = 'Viking Queen';
 
     cy.get('[data-testid=button]')
       .filter(':contains("Edit")')
       .eq(index)
       .click();
 
+    cy.SetupInputFieldsCommand();
+
     cy.get('@Description').clear().type(editedDescription);
     cy.putCommand('/heroes', { ...heroToEdit, description: editedDescription });
     cy.get('[data-testid=button]').contains('Save').click();
 
-    cy.get('[data-testid=card]').should('have.length', HEROES.length + 1);
+    cy.get('[data-testid=card]').should('have.length', HEROES.length);
+    cy.get('[data-testid=card-description]')
+      .eq(index)
+      .should('contain', 'Viking');
   });
 });

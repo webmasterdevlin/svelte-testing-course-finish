@@ -5,7 +5,7 @@
 
 <div class="card-content">
   <div class="content">
-    <div class="name">{name}</div>
-    <div class="description">{description}</div>
+    <div data-testid="card-name" class="name">{name}</div>
+    <div data-testid="card-description" class="description">{description}</div>
   </div>
 </div>
