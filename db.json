@@ -1,32 +1,34 @@
 {
   "heroes": [
     {
-      "id": "7ggew732dw",
-      "firstName": "Barry",
-      "lastName": "Allen",
-      "house": "DC",
-      "knownAs": "Flash"
+      "id": "HeroAslaug",
+      "name": "Aslaug",
+      "description": "warrior queen"
     },
     {
-      "id": "1ggew732dw",
-      "firstName": "Scott",
-      "lastName": "Summer",
-      "house": "Marvel",
-      "knownAs": "Cyclopes"
+      "id": "HeroBjorn",
+      "name": "Bjorn Ironside",
+      "description": "king of 9th century Sweden"
     },
     {
-      "id": "dfw7g2",
-      "firstName": "Peter",
-      "lastName": "Parker",
-      "house": "Marvel",
-      "knownAs": "Spiderman"
+      "id": "HeroIvar",
+      "name": "Ivar the Boneless",
+      "description": "commander of the Great Heathen Army"
     },
     {
-      "id": "9gfw9gde",
-      "firstName": "Bruce",
-      "lastName": "Wayne",
-      "house": "DC",
-      "knownAs": "Batman"
+      "id": "HeroLagertha",
+      "name": "Lagertha the Shieldmaiden",
+      "description": "aka Hlaðgerðr"
+    },
+    {
+      "id": "HeroRagnar",
+      "name": "Ragnar Lothbrok",
+      "description": "aka Ragnar Sigurdsson"
+    },
+    {
+      "id": "HeroThora",
+      "name": "Thora Town-hart",
+      "description": "daughter of Earl Herrauðr of Götaland"
     }
   ],
   "villains": [

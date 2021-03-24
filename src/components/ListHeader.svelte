@@ -16,11 +16,11 @@
   <Link to={routePath}>
     <h2 class="title">{title}</h2>
   </Link>
-  <button class="button add-button" on:click={() => add()} aria-label="add">
+  <button data-testid="plus-button" class="button add-button" on:click={() => add()} aria-label="add">
     <i class="fas fa-plus" aria-hidden="true" />
   </button>
-  <button
-    class="button refresh-button"
+  <button data-testid="refresh-button"
+          class="button refresh-button"
     on:click={() => dispatch('refresh')}
     aria-label="refresh">
     <i class="fas fa-sync" aria-hidden="true" />

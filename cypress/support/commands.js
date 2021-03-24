@@ -37,7 +37,4 @@ Cypress.Commands.add('putCommand', (url, requestBody) => {
 Cypress.Commands.add('SetupInputFieldsCommand', () => {
   cy.get('[data-testid=name]').as('Name');
   cy.get('[data-testid=description]').as('Description');
-
-  cy.get('[data-testid=cancel-button]').as('Cancel');
-  cy.get('[data-testid=save-button]').as('Save');
 });

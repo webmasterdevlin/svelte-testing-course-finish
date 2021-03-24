@@ -62,6 +62,7 @@
       <div class="field">
         <label class="label" for="name">name</label>
         <input
+          data-testid="name"
           class="input"
           name="name"
           placeholder="e.g. Colleen"
@@ -71,6 +72,7 @@
       <div class="field">
         <label class="label" for="description">description</label>
         <input
+          data-testid="description"
           class="input"
           name="description"
           placeholder="dance fight!"

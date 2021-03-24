@@ -28,14 +28,66 @@ describe('Heroes Page', () => {
     cy.get('[data-testid=card]').should('have.length', 2);
   });
 
-  it('should delete a hero when delete button is click', () => {
+  it('should not delete a hero when cancelled', () => {
     const index = 1;
     cy.get('[data-testid=button]')
       .filter(':contains("Delete")')
       .eq(index)
       .click();
-    cy.get('[data-testid=yes-button]').click();
+    cy.get('[data-testid=no-button]').click();
 
-    cy.get('[data-testid=card]').should('have.length', 1);
+    cy.get('[data-testid=card]').should('have.length', HEROES.length);
+  });
+
+  it('should not add a new hero when cancelled', () => {
+    cy.get('[data-testid=plus-button]').click();
+    cy.SetupInputFieldsCommand();
+    cy.get('@Name').type('Ruben');
+    cy.get('@Description').type('Col.');
+    cy.get('[data-testid=button]').contains('Cancel').click();
+    cy.get('[data-testid=card]').should('have.length', HEROES.length);
+  });
+
+  it('should add a new hero', () => {
+    const name = 'Ruben';
+    const description = 'Col.';
+
+    cy.get('[data-testid=plus-button]').click();
+    cy.SetupInputFieldsCommand();
+    cy.get('@Name').type(name);
+    cy.get('@Description').type(description);
+    cy.postCommand('/heroes', { name, description });
+    cy.get('[data-testid=button]').contains('Save').click();
+
+    cy.get('[data-testid=card]').should('have.length', HEROES.length + 1);
+  });
+
+  it('should update an existing hero', () => {
+    const name = 'Ruben';
+    const description = 'Col.';
+
+    cy.get('[data-testid=plus-button]').click();
+    cy.SetupInputFieldsCommand();
+    cy.get('@Name').type(name);
+    cy.get('@Description').type(description);
+    cy.postCommand('/heroes', { name, description });
+    cy.get('[data-testid=button]').contains('Save').click();
+
+    cy.get('[data-testid=card]').should('have.length', HEROES.length + 1);
+
+    const index = 2;
+    const heroToEdit = HEROES[index];
+    const editedDescription = 'General';
+
+    cy.get('[data-testid=button]')
+      .filter(':contains("Edit")')
+      .eq(index)
+      .click();
+
+    cy.get('@Description').clear().type(editedDescription);
+    cy.putCommand('/heroes', { ...heroToEdit, description: editedDescription });
+    cy.get('[data-testid=button]').contains('Save').click();
+
+    cy.get('[data-testid=card]').should('have.length', HEROES.length + 1);
   });
 });
